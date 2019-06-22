@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchoolManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SchoolManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Class_Subjects" EntityType="SchoolManagementModel.Class_Subjects" />
+    <EntitySet Name="Classes" EntityType="SchoolManagementModel.Classes" />
+    <EntitySet Name="DivionProjects" EntityType="SchoolManagementModel.DivionProjects" />
+    <EntitySet Name="DivisionClasses" EntityType="SchoolManagementModel.DivisionClasses" />
+    <EntitySet Name="Grades" EntityType="SchoolManagementModel.Grades" />
+    <EntitySet Name="MessageContact" EntityType="SchoolManagementModel.MessageContact" />
+    <EntitySet Name="MessageReponse" EntityType="SchoolManagementModel.MessageReponse" />
+    <EntitySet Name="RegistrationClasses" EntityType="SchoolManagementModel.RegistrationClasses" />
+    <EntitySet Name="RegistrationSubjects" EntityType="SchoolManagementModel.RegistrationSubjects" />
+    <EntitySet Name="Roles" EntityType="SchoolManagementModel.Roles" />
+    <EntitySet Name="Subjects" EntityType="SchoolManagementModel.Subjects" />
+    <EntitySet Name="Users" EntityType="SchoolManagementModel.Users" />
+    <AssociationSet Name="FK__Class_Sub__Subje__20C1E124" Association="SchoolManagementModel.FK__Class_Sub__Subje__20C1E124">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Class_Subjects" EntitySet="Class_Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DivisionC__IDCla__31EC6D26" Association="SchoolManagementModel.FK__DivisionC__IDCla__31EC6D26">
+      <End Role="Class_Subjects" EntitySet="Class_Subjects" />
+      <End Role="DivisionClasses" EntitySet="DivisionClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IDCla__2C3393D0" Association="SchoolManagementModel.FK__Registrat__IDCla__2C3393D0">
+      <End Role="Class_Subjects" EntitySet="Class_Subjects" />
+      <End Role="RegistrationClasses" EntitySet="RegistrationClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IDClass__145C0A3F" Association="SchoolManagementModel.FK__Users__IDClass__145C0A3F">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DivionPro__IDReg__37A5467C" Association="SchoolManagementModel.FK__DivionPro__IDReg__37A5467C">
+      <End Role="RegistrationClasses" EntitySet="RegistrationClasses" />
+      <End Role="DivionProjects" EntitySet="DivionProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DivionPro__IDTea__36B12243" Association="SchoolManagementModel.FK__DivionPro__IDTea__36B12243">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DivionProjects" EntitySet="DivionProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DivisionC__IDTea__30F848ED" Association="SchoolManagementModel.FK__DivisionC__IDTea__30F848ED">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DivisionClasses" EntitySet="DivisionClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__IDStuden__3D5E1FD2" Association="SchoolManagementModel.FK__Grades__IDStuden__3D5E1FD2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__IDSubjec__3C69FB99" Association="SchoolManagementModel.FK__Grades__IDSubjec__3C69FB99">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MessageRepon__ID__5535A963" Association="SchoolManagementModel.FK__MessageRepon__ID__5535A963">
+      <End Role="MessageContact" EntitySet="MessageContact" />
+      <End Role="MessageReponse" EntitySet="MessageReponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MessageRe__IDAdm__5629CD9C" Association="SchoolManagementModel.FK__MessageRe__IDAdm__5629CD9C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MessageReponse" EntitySet="MessageReponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IDStu__2B3F6F97" Association="SchoolManagementModel.FK__Registrat__IDStu__2B3F6F97">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RegistrationClasses" EntitySet="RegistrationClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IDStu__25869641" Association="SchoolManagementModel.FK__Registrat__IDStu__25869641">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RegistrationSubjects" EntitySet="RegistrationSubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IDSub__267ABA7A" Association="SchoolManagementModel.FK__Registrat__IDSub__267ABA7A">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="RegistrationSubjects" EntitySet="RegistrationSubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IDRole__15502E78" Association="SchoolManagementModel.FK__Users__IDRole__15502E78">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <FunctionImport Name="CountRegister" IsComposable="true" ReturnType="Collection(SchoolManagementModel.CountRegister_Result)" />
+    <FunctionImport Name="funClass" IsComposable="true" ReturnType="Collection(SchoolManagementModel.funClass_Result)" />
+    <FunctionImport Name="funSubject" IsComposable="true" ReturnType="Collection(SchoolManagementModel.funSubject_Result)" />
+  </EntityContainer>
+  <EntityType Name="Class_Subjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ClassType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Classroom" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subjects" Relationship="SchoolManagementModel.FK__Class_Sub__Subje__20C1E124" FromRole="Class_Subjects" ToRole="Subjects" />
+    <NavigationProperty Name="DivisionClasses" Relationship="SchoolManagementModel.FK__DivisionC__IDCla__31EC6D26" FromRole="Class_Subjects" ToRole="DivisionClasses" />
+    <NavigationProperty Name="RegistrationClasses" Relationship="SchoolManagementModel.FK__Registrat__IDCla__2C3393D0" FromRole="Class_Subjects" ToRole="RegistrationClasses" />
+  </EntityType>
+  <EntityType Name="Classes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ClassName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Course" Type="Int32" Nullable="false" />
+    <Property Name="Active_Class" Type="Boolean" />
+    <Property Name="Active_Subject" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__Users__IDClass__145C0A3F" FromRole="Classes" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="DivionProjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTeacher" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDRegistrationClass" Type="Int32" />
+    <NavigationProperty Name="RegistrationClasses" Relationship="SchoolManagementModel.FK__DivionPro__IDReg__37A5467C" FromRole="DivionProjects" ToRole="RegistrationClasses" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__DivionPro__IDTea__36B12243" FromRole="DivionProjects" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="DivisionClasses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTeacher" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDClass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Class_Subjects" Relationship="SchoolManagementModel.FK__DivisionC__IDCla__31EC6D26" FromRole="DivisionClasses" ToRole="Class_Subjects" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__DivisionC__IDTea__30F848ED" FromRole="DivisionClasses" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Semester" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IDSubject" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IDStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ScoreQT" Type="Double" />
+    <Property Name="ScoreFinal" Type="Double" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__Grades__IDStuden__3D5E1FD2" FromRole="Grades" ToRole="Users" />
+    <NavigationProperty Name="Subjects" Relationship="SchoolManagementModel.FK__Grades__IDSubjec__3C69FB99" FromRole="Grades" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="MessageContact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateSend" Type="DateTime" Precision="0" />
+    <Property Name="MessageGuest" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="isRep" Type="Boolean" />
+    <NavigationProperty Name="MessageReponse" Relationship="SchoolManagementModel.FK__MessageRepon__ID__5535A963" FromRole="MessageContact" ToRole="MessageReponse" />
+  </EntityType>
+  <EntityType Name="MessageReponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IDAdmin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MessageAdmin" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateRep" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="MessageContact" Relationship="SchoolManagementModel.FK__MessageRepon__ID__5535A963" FromRole="MessageReponse" ToRole="MessageContact" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__MessageRe__IDAdm__5629CD9C" FromRole="MessageReponse" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RegistrationClasses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDClass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Class_Subjects" Relationship="SchoolManagementModel.FK__Registrat__IDCla__2C3393D0" FromRole="RegistrationClasses" ToRole="Class_Subjects" />
+    <NavigationProperty Name="DivionProjects" Relationship="SchoolManagementModel.FK__DivionPro__IDReg__37A5467C" FromRole="RegistrationClasses" ToRole="DivionProjects" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__Registrat__IDStu__2B3F6F97" FromRole="RegistrationClasses" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RegistrationSubjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDSubject" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__Registrat__IDStu__25869641" FromRole="RegistrationSubjects" ToRole="Users" />
+    <NavigationProperty Name="Subjects" Relationship="SchoolManagementModel.FK__Registrat__IDSub__267ABA7A" FromRole="RegistrationSubjects" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="SchoolManagementModel.FK__Users__IDRole__15502E78" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TC" Type="Double" Nullable="false" />
+    <Property Name="TC_Fee" Type="Double" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class_Subjects" Relationship="SchoolManagementModel.FK__Class_Sub__Subje__20C1E124" FromRole="Subjects" ToRole="Class_Subjects" />
+    <NavigationProperty Name="Grades" Relationship="SchoolManagementModel.FK__Grades__IDSubjec__3C69FB99" FromRole="Subjects" ToRole="Grades" />
+    <NavigationProperty Name="RegistrationSubjects" Relationship="SchoolManagementModel.FK__Registrat__IDSub__267ABA7A" FromRole="Subjects" ToRole="RegistrationSubjects" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDClass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="IDRole" Type="Int32" />
+    <NavigationProperty Name="Classes" Relationship="SchoolManagementModel.FK__Users__IDClass__145C0A3F" FromRole="Users" ToRole="Classes" />
+    <NavigationProperty Name="DivionProjects" Relationship="SchoolManagementModel.FK__DivionPro__IDTea__36B12243" FromRole="Users" ToRole="DivionProjects" />
+    <NavigationProperty Name="DivisionClasses" Relationship="SchoolManagementModel.FK__DivisionC__IDTea__30F848ED" FromRole="Users" ToRole="DivisionClasses" />
+    <NavigationProperty Name="Grades" Relationship="SchoolManagementModel.FK__Grades__IDStuden__3D5E1FD2" FromRole="Users" ToRole="Grades" />
+    <NavigationProperty Name="MessageReponse" Relationship="SchoolManagementModel.FK__MessageRe__IDAdm__5629CD9C" FromRole="Users" ToRole="MessageReponse" />
+    <NavigationProperty Name="RegistrationClasses" Relationship="SchoolManagementModel.FK__Registrat__IDStu__2B3F6F97" FromRole="Users" ToRole="RegistrationClasses" />
+    <NavigationProperty Name="RegistrationSubjects" Relationship="SchoolManagementModel.FK__Registrat__IDStu__25869641" FromRole="Users" ToRole="RegistrationSubjects" />
+    <NavigationProperty Name="Roles" Relationship="SchoolManagementModel.FK__Users__IDRole__15502E78" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK__Class_Sub__Subje__20C1E124">
+    <End Type="SchoolManagementModel.Subjects" Role="Subjects" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.Class_Subjects" Role="Class_Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Class_Subjects">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DivisionC__IDCla__31EC6D26">
+    <End Type="SchoolManagementModel.Class_Subjects" Role="Class_Subjects" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.DivisionClasses" Role="DivisionClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DivisionClasses">
+        <PropertyRef Name="IDClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IDCla__2C3393D0">
+    <End Type="SchoolManagementModel.Class_Subjects" Role="Class_Subjects" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.RegistrationClasses" Role="RegistrationClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegistrationClasses">
+        <PropertyRef Name="IDClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__IDClass__145C0A3F">
+    <End Type="SchoolManagementModel.Classes" Role="Classes" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IDClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DivionPro__IDReg__37A5467C">
+    <End Type="SchoolManagementModel.RegistrationClasses" Role="RegistrationClasses" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.DivionProjects" Role="DivionProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationClasses">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DivionProjects">
+        <PropertyRef Name="IDRegistrationClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DivionPro__IDTea__36B12243">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.DivionProjects" Role="DivionProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DivionProjects">
+        <PropertyRef Name="IDTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DivisionC__IDTea__30F848ED">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.DivisionClasses" Role="DivisionClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DivisionClasses">
+        <PropertyRef Name="IDTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__IDStuden__3D5E1FD2">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.Grades" Role="Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="IDStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__IDSubjec__3C69FB99">
+    <End Type="SchoolManagementModel.Subjects" Role="Subjects" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.Grades" Role="Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="IDSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MessageRepon__ID__5535A963">
+    <End Type="SchoolManagementModel.MessageContact" Role="MessageContact" Multiplicity="1" />
+    <End Type="SchoolManagementModel.MessageReponse" Role="MessageReponse" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MessageContact">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MessageReponse">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MessageRe__IDAdm__5629CD9C">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.MessageReponse" Role="MessageReponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MessageReponse">
+        <PropertyRef Name="IDAdmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IDStu__2B3F6F97">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.RegistrationClasses" Role="RegistrationClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegistrationClasses">
+        <PropertyRef Name="IDStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IDStu__25869641">
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.RegistrationSubjects" Role="RegistrationSubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegistrationSubjects">
+        <PropertyRef Name="IDStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IDSub__267ABA7A">
+    <End Type="SchoolManagementModel.Subjects" Role="Subjects" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.RegistrationSubjects" Role="RegistrationSubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegistrationSubjects">
+        <PropertyRef Name="IDSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__IDRole__15502E78">
+    <End Type="SchoolManagementModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="SchoolManagementModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IDRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="CountRegister_Result">
+    <Property Type="String" Name="IDClass" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="funClass_Result">
+    <Property Type="String" Name="IDClass" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="funSubject_Result">
+    <Property Type="String" Name="IDSubject" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+</Schema>

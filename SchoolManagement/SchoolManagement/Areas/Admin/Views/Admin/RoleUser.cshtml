@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SchoolManagement.Models.Roles>
+
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Role User</h1>
+    </div>
+</div>
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("RoleUser", "RoleUser", "Admin")</li>
+</ol>
+<p>
+    This is Page Role. You can @Html.ActionLink("Create New", "RoleUserCreate", "Admin") or Edit
+</p>
+<table class="table table-bordered" id="dataTable">
+    <tr>
+        <th>ID</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.ID)</td>
+            <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+            <td>
+                @Html.ActionLink("Edit", "RoleUserEdit", new { id = item.ID }) or
+                @Html.ActionLink("Delete", "RoleUserDelete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.DivionProjects>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Project3";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    int _stt = 1;
+}
+<section class="site-section">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center">
+            <br />
+            <h2>Project3</h2>
+            <h6>You can @Html.ActionLink("download", "DownloadProject", new { idProject = "ET5020" }) file.</h6>
+        </div>
+        <div class="col-md-7 text-center">
+            @using (Html.BeginForm("Project3", "InformationPublic", FormMethod.Get))
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        Select by Student or Teacher
+                        <input type="text" name="searchString" value="@ViewBag.searchString" /> <button type="submit">Search</button>
+                    </div>
+                </div>
+            }
+            <br />
+        </div>
+        <div class="col-md-7 text-center">
+            <table class=" table table-light" border="1" cellpadding="10" cellspacing="10">
+                <tr>
+                    <th>STT</th>
+                    <th>MSSV</th>
+                    <th>Student</th>
+                    <th>Class</th>
+                    <th>Teacher</th>
+                    <th>Bộ môn</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@_stt</td>
+                        @{ _stt++;}
+                        <td>@Html.DisplayFor(modelItem => item.RegistrationClasses.Users.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RegistrationClasses.Users.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RegistrationClasses.Users.Classes.ClassName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Classes.ClassName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Email)</td>
+                    </tr>
+                }
+
+            </table>
+            <b>@Html.PagedListPager(Model, page => Url.Action("Project3", new { page, searchString = ViewBag.searchString }))</b>
+        </div>
+    </div>
+</section>

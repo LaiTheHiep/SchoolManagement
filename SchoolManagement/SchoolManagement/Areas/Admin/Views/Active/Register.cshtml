@@ -1,0 +1,110 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.Classes>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    int _stt = 1;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Active</h1>
+    </div>
+</div>
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+        <li class="breadcrumb-item">@Html.ActionLink("Active", "Register", "Active")</li>
+    </ol>
+</div>
+<div class="panel-body">
+    @using (Html.BeginForm("ActiveClass", "Active", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Input Course Active Class: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="activeClass" value="@ViewBag.activeClass"/> <button type="submit">Active_Class</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<div class="panel-body">
+    @using (Html.BeginForm("ResetClass", "Active", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Input Course Reset Active Class: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="resetClass" value="@ViewBag.resetClass" /> <button type="submit">Reset_Class</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<div class="panel-body">
+    @using (Html.BeginForm("ActiveSubject", "Active", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Input Course Active Subject: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="activeSubject" value="@ViewBag.activeSubject" /> <button type="submit">Active_Subject</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<div class="panel-body">
+    @using (Html.BeginForm("ResetSubject", "Active", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Input Course Reset Active Subject: &nbsp;
+                <input type="text" name="resetSubject" value="@ViewBag.resetSubject" /> <button type="submit">Reset_Subject</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<div class="panel-body">
+    @using (Html.BeginForm("Register", "Active", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Search course:
+                <input type="text" name="searchString" value="@ViewBag.searchString"/> <button type="submit">Search</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+
+<div class="row">
+    <table class="table table-bordered" id="dataTable">
+        <tr>
+            <th>STT</th>
+            <th>IDClass</th>
+            <th>Class</th>
+            <th>Course</th>
+            <th>Active_Class</th>
+            <th>Active_Subject</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@_stt</td>
+                @{ _stt++;}
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Course)</td>
+                <td>@Html.DisplayFor(modelItem => item.Active_Class)</td>
+                <td>@Html.DisplayFor(modelItem => item.Active_Subject)</td>
+            </tr>
+        }
+    </table>
+    <b>@Html.PagedListPager(Model, page => Url.Action("Register", new { page, searchString = @ViewBag.searchString }))</b>
+</div>
+
+

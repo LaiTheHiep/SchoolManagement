@@ -1,0 +1,60 @@
+﻿
+#idsectionImage {
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#idIconImage {
+    width: 85px;
+    height: 85px;
+}
+
+#iconImage {
+    width: 20px;
+    height: 20px;
+}
+
+/*Menu*/
+/**{
+    box-sizing: border-box
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#idMenuNav {
+    width: 100%;
+    background-color:brown;
+    overflow: auto;
+    text-align:center;
+}
+
+    #idMenuNav a {
+        float: left;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        width:16.6%;
+        text-align: center;
+    }
+
+        #idMenuNav a:hover {
+            background-color: #000;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+@media screen and (max-width: 320px) {
+    #idMenuNav a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}*/
+
+/*Video*/

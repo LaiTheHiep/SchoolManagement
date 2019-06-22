@@ -1,0 +1,41 @@
+﻿@model SchoolManagement.Models.Classes
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Delete Class</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Class", "Index", "Class")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Delete", "Delete", "Class")</li>
+</ol>
+<div>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <td>@Html.DisplayFor(model => model.ID)</td>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <td>@Html.DisplayFor(model => model.ClassName)</td>
+        </tr>
+        <tr>
+            <th>Course</th>
+            <td>@Html.DisplayFor(model => model.Course)</td>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

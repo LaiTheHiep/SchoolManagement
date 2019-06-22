@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/LayoutTemplate/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/LayoutTemplate/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="~/LayoutTemplate/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="~/LayoutTemplate/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/LayoutTemplate/css/startmin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/LayoutTemplate/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="~/Home/Index">HUST</a>
+            </div>
+
+            @Html.Partial("~/Views/SharedTemplate/_PartialNavRole.cshtml")
+
+            <ul class="nav navbar-right navbar-top-links">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> @Session["Name"].ToString() <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="~/Login/Edit"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        @*<li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>*@
+                        <li class="divider"></li>
+                        <li>
+                            <a href="~/Login/LogOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+            @Html.Partial("~/Views/SharedTemplate/_PartialNavMenu.cshtml")
+
+            <!-- /.navbar-static-side -->
+        </nav>
+    </div>
+    <div id="page-wrapper" style="min-height: 306px;">
+        @RenderBody()
+    </div>
+    <!-- jQuery -->
+    <script src="~/LayoutTemplate/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/LayoutTemplate/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/LayoutTemplate/js/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="~/LayoutTemplate/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/LayoutTemplate/js/dataTables/dataTables.bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/LayoutTemplate/js/startmin.js"></script>
+</body>
+</html>

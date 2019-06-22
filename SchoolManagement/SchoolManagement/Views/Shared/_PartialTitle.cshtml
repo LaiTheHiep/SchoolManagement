@@ -1,0 +1,41 @@
+﻿
+@{
+    string _title = ViewBag.Title;
+
+    if (_title == "Home Page")
+    {
+        <h1>HUST</h1>
+    }
+    else if (_title == "Login")
+    {
+        <h1>LOGIN</h1>
+    }
+    else if (_title == "Register")
+    {
+        <h1>Register</h1>
+        <p class="lead">Create Account to use service</p>
+    }
+    else if (_title == "Contact")
+    {
+        <h1>CONTACT</h1>
+    }
+    else if (_title == "Admin Page")
+    {
+        <h1>Admin Page</h1>
+    }
+    else if (_title == "Teacher Page")
+    {
+        <h1>Teacher Page</h1>
+    }
+    else if (_title == "Student Page")
+    {
+        <h1>Student Page</h1>
+    }
+
+    else
+    {
+        <h1>HUST</h1>
+    }
+    <p class="lead">HaNoi University Of Science and Technology</p>
+    <p><a href="https://ctt-daotao.hust.edu.vn/" class="btn btn-primary">Go come to HUST</a></p>
+}

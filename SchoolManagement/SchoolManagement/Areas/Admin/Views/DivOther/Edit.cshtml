@@ -1,0 +1,48 @@
+﻿@model SchoolManagement.Models.DivisionClasses
+
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit DivOther</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Other", "Index", "DivOther")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Edit", "Edit", "DivOther")</li>
+</ol>
+<h6 style="color: red"><label class="field-validation-error">@Html.DisplayFor(model => model.ErrorDivClass)</label></h6>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDClass, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IDClass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDClass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDTeacher, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IDTeacher, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDTeacher, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+}

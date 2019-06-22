@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.RegistrationClasses>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ViewClass";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    int _stt = 1;
+}
+<section class="site-section">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center">
+            <br />
+            <h2>ViewClass</h2>
+        </div>
+        <div class="col-md-7 text-center">
+            @{
+                string _idClass, _idSubject, _subject;
+                if (Model.Count > 0)
+                {
+                    var _model = Model.ToArray()[0];
+                    _idClass = _model.IDClass;
+                    _idSubject = _model.Class_Subjects.SubjectID;
+                    _subject = _model.Class_Subjects.Subjects.SubjectName;
+                    <h6>IDClass: @_idClass - IDSubject: @_idSubject</h6>
+                    <h6>SubjectName: @_subject</h6>
+                    <h6>You can @Html.ActionLink("download", "DownloadViewClass", new { idClass = _idClass })</h6>
+                }
+            }
+        </div>
+        <div class="col-md-7 text-center">
+            <table class=" table table-light" border="1" cellpadding="10" cellspacing="10">
+                <tr>
+                    <th>STT</th>
+                    <th>MSSV</th>
+                    <th>Full Name</th>
+                    <th>Class</th>
+                    <th>Course</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>IDClass</th>
+                    <th>IDSubject</th>
+                    <th>Subject</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@_stt</td>
+                        @{_stt++;}
+                        <td>@Html.DisplayFor(modelItem => item.IDStudent)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Classes.ClassName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Classes.Course)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IDClass)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Class_Subjects.SubjectID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Class_Subjects.Subjects.SubjectName)</td>
+
+                    </tr>
+                }
+            </table>
+            <b>@Html.PagedListPager(Model, page => Url.Action("ViewClass", new { page }))</b>
+        </div>
+    </div>
+</section>

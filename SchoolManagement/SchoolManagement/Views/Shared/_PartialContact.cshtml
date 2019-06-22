@@ -1,0 +1,51 @@
+﻿<div class="col-md-4" style="top:50px;">
+    <h3 style="color:white">Response</h3>
+    <form action="~/Home/SendMessage" method="post">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="name">Email</label>
+                <input type="text" id="name" class="form-control" name="ResponseEmail">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="message">Write Message</label>
+                <textarea name="ResponseMessage" id="message" class="form-control " cols="30" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>
+
+@*@if (ViewBag.Title == "Home Page")
+    {
+        @model SchoolManagement.Models.MessageContact
+        <div class="col-md-4" style="top:50px;">
+            <h3 style="color:white">Response</h3>
+            <form action="~/Home/SendMessage" method="post" style="color:black;">
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="name" style="color:white;">Email</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        <span style="color:red">@Html.ValidationMessageFor(model => model.Email)</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="name" style="color:white;">Message</label>
+                        @Html.TextAreaFor(model => model.MessageGuest, new { @class = "form-control", @id = "message" })
+                        <span style="color:red">@Html.ValidationMessageFor(model => model.MessageGuest)</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="submit" value="Send" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    }*@

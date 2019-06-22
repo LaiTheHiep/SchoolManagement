@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Teacher Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    string _name = Session["Name"].ToString();
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Page with Teacher</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        @Html.ActionLink("Home", "Index", "Teacher")
+    </li>
+</ol>
+<h2>Hi @_name</h2>
+

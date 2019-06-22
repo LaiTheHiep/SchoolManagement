@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SchoolManagement.Models.Subjects>
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    string[] _project = { "Project1", "Project2", "Project3" };
+    int _i = 0;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Project</h1>
+    </div>
+</div>
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Project", "Index", "DivProject")</li>
+</ol>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>TC</th>
+            <th>TC_Fee</th>
+            <th>View</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                <td>@Html.DisplayFor(modelItem => item.TC)</td>
+                <td>@Html.DisplayFor(modelItem => item.TC_Fee)</td>
+                <td>@Html.ActionLink("View", _project[_i])</td>
+                @{ _i++;}
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.funClass_Result>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    int _stt = 1;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Reset Classes</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Reset", "ResetClasses", "ResetAll")</li>
+</ol>
+
+@using (Html.BeginForm("ResetClasses", "ResetAll", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            Search Classes:
+            <input type="text" name="searchString" value="@ViewBag.searchString" /> <button type="submit">Search</button>
+            <hr />
+            You can @Html.ActionLink("delete all", "DeleteClass")
+        </div>
+    </div>
+}
+<br />
+
+
+<div>
+    <table class="table table-bordered" id="dataTable">
+        <tr>
+            <th>STT</th>
+            <th>IDClass</th>
+            <th>Subject</th>
+            <th>Quantity</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@_stt</td>
+                @{ _stt++;}
+                <td>@Html.DisplayFor(modelItem => item.IDClass)</td>
+                <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+            </tr>
+        }
+    </table>
+    <b>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.searchString }))</b>
+</div>

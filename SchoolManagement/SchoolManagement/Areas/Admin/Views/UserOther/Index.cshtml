@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.Users>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    int _stt = 1;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Account Guest</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Other", "Index", "UserOther")</li>
+</ol>
+<p>This is page All Others. You can @Html.ActionLink("create", "Create", "UserOther") new account</p>
+
+    @using (Html.BeginForm("Index", "UserOther", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Select by ID, Class, Name or Address
+                <input type="text" name="searchString" value="@ViewBag.searchString"/> <button type="submit">Search</button>
+            </div>
+        </div>
+    }
+    <br />
+
+<table class="table table-bordered" id="dataTable">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        @*<th>Password</th>*@
+        <th>Name</th>
+        <th>Class</th>
+        <th>Email </th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@_stt</td>
+            @{ _stt++;}
+            <td>@Html.DisplayFor(modelItem => item.ID)</td>
+            @*<td>@Html.DisplayFor(modelItem => item.Password)</td>*@
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Classes.ClassName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+            <td>@Html.DisplayFor(modelItem => item.Roles.RoleName)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) or
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<b>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.searchString }))</b>

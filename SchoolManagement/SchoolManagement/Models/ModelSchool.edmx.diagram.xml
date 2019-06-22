@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13370b218c43427cb4fd11c4c4886991" Name="Diagram1">
+        <EntityTypeShape EntityType="SchoolManagementModel.Class_Subjects" Width="1.5" PointX="3.125" PointY="13.625" />
+        <EntityTypeShape EntityType="SchoolManagementModel.Classes" Width="1.5" PointX="0.875" PointY="9" />
+        <EntityTypeShape EntityType="SchoolManagementModel.DivionProjects" Width="1.5" PointX="7.625" PointY="6.125" />
+        <EntityTypeShape EntityType="SchoolManagementModel.DivisionClasses" Width="1.5" PointX="8.375" PointY="12.125" />
+        <EntityTypeShape EntityType="SchoolManagementModel.Grades" Width="1.5" PointX="8.375" PointY="8.75" />
+        <EntityTypeShape EntityType="SchoolManagementModel.MessageContact" Width="1.5" PointX="3.125" PointY="18" />
+        <EntityTypeShape EntityType="SchoolManagementModel.MessageReponse" Width="1.5" PointX="6" PointY="12" />
+        <EntityTypeShape EntityType="SchoolManagementModel.RegistrationClasses" Width="1.5" PointX="5.375" PointY="9" />
+        <EntityTypeShape EntityType="SchoolManagementModel.RegistrationSubjects" Width="1.5" PointX="5.375" PointY="6.125" />
+        <EntityTypeShape EntityType="SchoolManagementModel.Roles" Width="1.5" PointX="0.875" PointY="6.25" />
+        <EntityTypeShape EntityType="SchoolManagementModel.Subjects" Width="1.5" PointX="0.875" PointY="13.75" />
+        <EntityTypeShape EntityType="SchoolManagementModel.Users" Width="1.5" PointX="3.125" PointY="8" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Class_Sub__Subje__20C1E124" />
+        <AssociationConnector Association="SchoolManagementModel.FK__DivisionC__IDCla__31EC6D26" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Registrat__IDCla__2C3393D0" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Users__IDClass__145C0A3F" />
+        <AssociationConnector Association="SchoolManagementModel.FK__DivionPro__IDReg__37A5467C" />
+        <AssociationConnector Association="SchoolManagementModel.FK__DivionPro__IDTea__36B12243" />
+        <AssociationConnector Association="SchoolManagementModel.FK__DivisionC__IDTea__30F848ED" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Grades__IDStuden__3D5E1FD2" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Grades__IDSubjec__3C69FB99" />
+        <AssociationConnector Association="SchoolManagementModel.FK__MessageRepon__ID__5535A963" />
+        <AssociationConnector Association="SchoolManagementModel.FK__MessageRe__IDAdm__5629CD9C" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Registrat__IDStu__2B3F6F97" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Registrat__IDStu__25869641" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Registrat__IDSub__267ABA7A" />
+        <AssociationConnector Association="SchoolManagementModel.FK__Users__IDRole__15502E78" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

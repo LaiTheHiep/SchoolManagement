@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.Subjects>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+    int _stt = 1;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Subject</h1>
+    </div>
+</div>
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Subject", "Index", "Subject")</li>
+</ol>
+<p>
+    @Html.ActionLink("Create new subject", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Subject", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            Select by ID or SubjectName
+            <input type="text" name="searchString" value="@ViewBag.searchString" /> <button type="submit">Search</button>
+        </div>
+    </div>
+}
+<br />
+
+<div>
+    <table class="table">
+        <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>SubjectName</th>
+            <th>TC</th>
+            <th>TC_Fee</th>
+            <th>Edit</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@_stt</td>
+                @{ _stt++;}
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                <td>@Html.DisplayFor(modelItem => item.TC)</td>
+                <td>@Html.DisplayFor(modelItem => item.TC_Fee)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) or
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    <b>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.searchString }))</b>
+</div>

@@ -1,0 +1,54 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.Class_Subjects>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ListClass";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<section class="site-section">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center">
+            <br />
+            <h2>ListClass</h2>
+        </div>
+        <div class="col-md-7 text-center">
+            @using (Html.BeginForm("ListClass", "InformationPublic", FormMethod.Get))
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        Select Class
+                        <input type="text" name="searchString" value="@ViewBag.searchString" /> <button type="submit">Search</button>
+                    </div>
+                </div>
+            }
+            <br />
+        </div>
+        <div class="col-md-7 text-center">
+            <table class=" table table-light" border="1" cellpadding="10" cellspacing="10">
+                <tr>
+                    <th>IDClass</th>
+                    <th>IDSubject</th>
+                    <th>SubjectName</th>
+                    <th>Time</th>
+                    <th>Classroom</th>
+                    <th>ClassType</th>
+                    <th>Note</th>
+                    <th>ViewClass</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.SubjectID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Subjects.SubjectName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Time)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Classroom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ClassType)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                        <td>@Html.ActionLink("View", "ViewClass", new { id = item.ID })</td>
+                    </tr>
+                }
+            </table>
+            <b>@Html.PagedListPager(Model, page => Url.Action("ListClass", new { page, searchString = ViewBag.searchString }))</b>
+        </div>
+    </div>
+</section>

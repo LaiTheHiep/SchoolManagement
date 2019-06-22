@@ -1,0 +1,75 @@
+﻿@model PagedList.IPagedList<SchoolManagement.Models.DivisionClasses>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">DivOther</h1>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Admin")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Other", "Index", "DivOther")</li>
+</ol>
+
+@*<h6 style="color: red"><label class="field-validation-error">@ViewBag.ErrorDivClass</label></h6>*@
+<div class="panel-body">
+    @using (Html.BeginForm("Create", "DivOther", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <p>Create Div_Classes</p>
+        <b>IDClass</b> <input type="text" name="IDClass" />
+        <b>IDTearch</b> <input type="text" name="IDTeacher" /> <button type="submit">Create</button>
+
+    }
+    <br />
+</div>
+<hr />
+<div class="panel-body">
+    @using (Html.BeginForm("Index", "DivOther", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                Select by Subject or Teacher
+                <input type="text" name="searchString" value="@ViewBag.searchString" /> <button type="submit">Search</button>
+            </div>
+        </div>
+    }
+    <br />
+</div>
+<div>
+    <table class="table table-bordered" id="dataTable">
+        <tr>
+            <th>IDClass</th>
+            <th>Subject</th>
+            <th>IDSubject</th>
+            <th>Time</th>
+            <th>ClassRoom</th>
+            <th>Teacher</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IDClass)</td>
+                <td>@Html.DisplayFor(modelItem => item.Class_Subjects.Subjects.SubjectName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Class_Subjects.SubjectID)</td>
+                <td>@Html.DisplayFor(modelItem => item.Class_Subjects.Time)</td>
+                <td>@Html.DisplayFor(modelItem => item.Class_Subjects.Classroom)</td>
+                <td>@Html.DisplayFor(modelItem => item.Users.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Users.Phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.Users.Email)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) or
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    <b>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.searchString }))</b>
+</div>
+

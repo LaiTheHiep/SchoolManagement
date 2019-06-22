@@ -1,0 +1,143 @@
+﻿@{
+    //Check role: 1, 2, 3
+    string _title = ViewBag.Title;
+    int _role = 0;
+    if (_title == "Admin Page")
+    {
+        _role = 1;
+    }
+
+    if (_title == "Teacher Page")
+    {
+        _role = 2;
+    }
+
+    if (_title == "Student Page")
+    {
+        _role = 3;
+    }
+}
+
+@*
+    Menu function Admin and Student
+    Check(true: Admin, Student, Teacher)
+*@
+@if (_role != 0)
+{
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center">
+            @if (_role == 1)
+            {
+                <h2>Admin - Page</h2>
+                <p class="lead">You can use service in website. Please choose function to action.</p>
+            }
+            @if (_role == 2)
+            {
+                <h2>Teacher - Page</h2>
+                <p class="lead">You can use service in website. Please choose function to action.</p>
+            }
+            @if (_role == 3)
+            {
+                <h2>Student - Page</h2>
+                <p class="lead">You can use service in website. Please choose function to action.</p>
+            }
+        </div>
+    </div>
+
+    @*Admin-function*@
+    if (_role == 1)
+    {
+        <div style="background-color:red;">
+            <nav class="navbar navbar-expand-md navbar-dark" style="background-color:darkblue;">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                        <ul class="navbar-nav mx-auto">
+
+                            <li class="nav-item" style="width:200px;">
+                                <a class="nav-link" href="#">RoleUser</a>
+                            </li>
+
+                            <li class="nav-item dropdown" style="width:200px;">
+                                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                    <a class="dropdown-item" href="#">Admin</a>
+                                    <a class="dropdown-item" href="#">Teacher</a>
+                                    <a class="dropdown-item" href="#">Student</a>
+                                    <a class="dropdown-item" href="#">Others</a>
+                                </div>
+
+                            </li>
+
+                            <li class="nav-item" style="width:200px;">
+                                <a class="nav-link" href="#">Class</a>
+                            </li>
+
+                            <li class="nav-item dropdown" style="width:200px;">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subject</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="#">List Subject</a>
+                                    <a class="dropdown-item" href="#">Create Class_Subject</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown" style="width:200px;">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assign Subject</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="#">Project</a>
+                                    <a class="dropdown-item" href="#">Subject</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown" style="width:200px;">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reset Data System</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="#">Active</a>
+                                    <a class="dropdown-item" href="#">Register_Subject</a>
+                                    <a class="dropdown-item" href="#">Register_Class</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    }
+    @*Student-function*@
+    if (_role == 3)
+    {
+        <div style="background-color:red;">
+            <nav class="navbar navbar-expand-md navbar-dark" style="background-color:darkblue;">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                        <ul class="navbar-nav mx-auto">
+
+                            <li class="nav-item" style="width:200px;">
+                                <a class="nav-link" href="#">Schedule</a>
+                            </li>
+
+                            <li class="nav-item" style="width:200px;">
+                                <a class="nav-link" href="#">Grades</a>
+                            </li>
+
+                            <li class="nav-item dropdown" style="width:200px;">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register for study</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="#">Subject</a>
+                                    <a class="dropdown-item" href="#">Class</a>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    }
+}

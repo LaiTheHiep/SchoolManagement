@@ -1,0 +1,33 @@
+﻿@{
+    // Code use Session
+    // If else check Login(Session?)
+    bool isLogin = false;
+    string _name = "Account";
+    if (Session["ID"] != null)
+    {
+        isLogin = true;
+        _name = Session["Name"].ToString();
+    }
+}
+<ul class="navbar-nav absolute-right">
+    @if (!isLogin)
+    {
+        <li class="nav-item">
+            <a href="~/Login/Login" class="nav-link">Login</a>
+        </li>
+
+        @*<li class="nav-item">
+            <a href="~/Login/Register" class="nav-link">Register</a>
+        </li>*@
+    }
+    else
+    {
+        <li class="nav-item">
+            <a href="~/Login/Edit" class="nav-link">@_name</a>
+        </li>
+
+        <li class="nav-item">
+            <a href="~/Login/LogOut" class="nav-link">Logout</a>
+        </li>
+    }
+</ul>

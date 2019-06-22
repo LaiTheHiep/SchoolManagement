@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SchoolManagementModelStoreContainer" CdmEntityContainer="SchoolManagementEntities">
+    <EntitySetMapping Name="Class_Subjects">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Class_Subjects">
+        <MappingFragment StoreEntitySet="Class_Subjects">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Classroom" ColumnName="Classroom" />
+          <ScalarProperty Name="ClassType" ColumnName="ClassType" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Classes">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="Active_Subject" ColumnName="Active_Subject" />
+          <ScalarProperty Name="Active_Class" ColumnName="Active_Class" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivionProjects">
+      <EntityTypeMapping TypeName="SchoolManagementModel.DivionProjects">
+        <MappingFragment StoreEntitySet="DivionProjects">
+          <ScalarProperty Name="IDRegistrationClass" ColumnName="IDRegistrationClass" />
+          <ScalarProperty Name="IDTeacher" ColumnName="IDTeacher" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionClasses">
+      <EntityTypeMapping TypeName="SchoolManagementModel.DivisionClasses">
+        <MappingFragment StoreEntitySet="DivisionClasses">
+          <ScalarProperty Name="IDClass" ColumnName="IDClass" />
+          <ScalarProperty Name="IDTeacher" ColumnName="IDTeacher" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Grades">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="ScoreFinal" ColumnName="ScoreFinal" />
+          <ScalarProperty Name="ScoreQT" ColumnName="ScoreQT" />
+          <ScalarProperty Name="IDStudent" ColumnName="IDStudent" />
+          <ScalarProperty Name="IDSubject" ColumnName="IDSubject" />
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageContact">
+      <EntityTypeMapping TypeName="SchoolManagementModel.MessageContact">
+        <MappingFragment StoreEntitySet="MessageContact">
+          <ScalarProperty Name="isRep" ColumnName="isRep" />
+          <ScalarProperty Name="MessageGuest" ColumnName="MessageGuest" />
+          <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageReponse">
+      <EntityTypeMapping TypeName="SchoolManagementModel.MessageReponse">
+        <MappingFragment StoreEntitySet="MessageReponse">
+          <ScalarProperty Name="DateRep" ColumnName="DateRep" />
+          <ScalarProperty Name="MessageAdmin" ColumnName="MessageAdmin" />
+          <ScalarProperty Name="IDAdmin" ColumnName="IDAdmin" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrationClasses">
+      <EntityTypeMapping TypeName="SchoolManagementModel.RegistrationClasses">
+        <MappingFragment StoreEntitySet="RegistrationClasses">
+          <ScalarProperty Name="IDClass" ColumnName="IDClass" />
+          <ScalarProperty Name="IDStudent" ColumnName="IDStudent" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrationSubjects">
+      <EntityTypeMapping TypeName="SchoolManagementModel.RegistrationSubjects">
+        <MappingFragment StoreEntitySet="RegistrationSubjects">
+          <ScalarProperty Name="IDSubject" ColumnName="IDSubject" />
+          <ScalarProperty Name="IDStudent" ColumnName="IDStudent" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Subjects">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TC_Fee" ColumnName="TC_Fee" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SchoolManagementModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IDClass" ColumnName="IDClass" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CountRegister" FunctionName="SchoolManagementModel.Store.CountRegister">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SchoolManagementModel.CountRegister_Result">
+          <ScalarProperty Name="IDClass" ColumnName="IDClass" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="funClass" FunctionName="SchoolManagementModel.Store.funClass">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SchoolManagementModel.funClass_Result">
+          <ScalarProperty Name="IDClass" ColumnName="IDClass" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="funSubject" FunctionName="SchoolManagementModel.Store.funSubject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SchoolManagementModel.funSubject_Result">
+          <ScalarProperty Name="IDSubject" ColumnName="IDSubject" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

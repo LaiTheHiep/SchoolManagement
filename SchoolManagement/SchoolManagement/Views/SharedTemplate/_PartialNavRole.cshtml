@@ -1,0 +1,34 @@
+﻿@{
+    /**/
+
+    //Check role: 1, 2, 3
+    string _title = ViewBag.Title;
+    int _role = 0;
+    if (_title == "Admin Page")
+    {
+        _role = 1;
+    }
+
+    if (_title == "Teacher Page")
+    {
+        _role = 2;
+    }
+
+    if (_title == "Student Page")
+    {
+        _role = 3;
+    }
+}
+
+@if (_role == 1)
+{
+    <ul class="nav navbar-nav navbar-left navbar-top-links">
+        <li><a href="~/Admin/Admin/Index"><i class="fa fa-home fa-fw"></i> Admin</a></li>
+    </ul>
+}
+@if (_role == 3)
+{
+    <ul class="nav navbar-nav navbar-left navbar-top-links">
+        <li><a href="~/Student/Student/Index"><i class="fa fa-home fa-fw"></i> Student</a></li>
+    </ul>
+}

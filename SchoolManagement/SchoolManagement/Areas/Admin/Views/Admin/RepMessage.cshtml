@@ -1,0 +1,38 @@
+﻿@model SchoolManagement.Models.Users
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/SharedTemplate/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Response</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Response Message
+            </div>
+            <div class="panel-body">
+                <form action="~/Admin/Admin/ResponseMessage" method="post"> 
+
+                    <label>Email</label>
+                    <input class="form-control" style="width:50%;" name="email" value="@Model.Email" />
+
+                    <label>Password</label>
+                    <input class="form-control" style="width:50%;" type="password" name="password" />
+
+                    <label>Subject</label>
+                    <input class="form-control" style="width:50%;" name="subject"/>
+
+                    <label>Message</label>
+                    <textarea class="form-control" rows="3" style="width:50%; height:200px;" name="message"></textarea>
+
+                    <br />
+                    <input type="submit" class="btn btn-outline btn-primary" value="Response"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

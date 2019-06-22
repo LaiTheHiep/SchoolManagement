@@ -1,0 +1,131 @@
+﻿@{
+    /**/
+
+    //Check role: 1, 2, 3
+    string _title = ViewBag.Title;
+    int _role = 0;
+    if (_title == "Admin Page")
+    {
+        _role = 1;
+    }
+
+    if (_title == "Teacher Page")
+    {
+        _role = 2;
+    }
+
+    if (_title == "Student Page")
+    {
+        _role = 3;
+    }
+}
+
+@if (_role == 1)
+{
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav in" id="side-menu">
+
+                <li>
+                    <a href="~/Admin/Admin/RoleUser"><i class="fa fa-user-md fa-fw"></i> RoleUser</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-users fa-fw"></i> Members<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="~/Admin/UserAdmin/Index">Admin</a></li>
+                        <li><a href="~/Admin/UserTeacher/Index">Tearcher</a></li>
+                        <li><a href="~/Admin/UserStudent/Index">Student</a></li>
+                        <li><a href="~/Admin/UserOther/Index">Others</a></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="~/Admin/Class/Index" class="active"><i class="fa fa-table fa-fw"></i> Class Student</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-tasks fa-fw"></i> Subject<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="~/Admin/Subject/Index">List Subject</a></li>
+                        <li><a href="~/Admin/Class_Subject/Index">Create Class_Subject</a></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> Assign Subject<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="~/Admin/DivProject/Index">Project</a></li>
+                        <li><a href="~/Admin/DivOther/Index">Class_Subject</a></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-database fa-fw"></i> Reset Data System<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="~/Admin/Active/Register">Active</a></li>
+                        <li><a href="~/Admin/ResetAll/ResetSubjects">Register_Subject</a></li>
+                        <li><a href="~/Admin/ResetAll/ResetClasses">Register_Class</a></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="~/Home/Index"><i class="fa fa-university fa-fw"></i> Return home</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+}
+
+@if (_role == 3)
+{
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav in" id="side-menu">
+
+                <li>
+                    <a href="~/Student/Student/Schedule"><i class="fa fa-bar-chart-o fa-fw"></i> Schedule</a>
+                </li>
+
+                <li>
+                    <a href="~/Student/Student/Grades"><i class="fa fa-graduation-cap fa-fw"></i> Grade</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-registered fa-fw"></i> Register for study<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="~/Student/Student/RegSubject">Subject</a></li>
+                        <li><a href="~/Student/Student/RegClass">Class</a></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="~/Home/Index"><i class="fa fa-university fa-fw"></i> Return home</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+}
+
+@if (_role == 2)
+{
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav in" id="side-menu">
+                <li>
+                    <a href="~/Teacher/Teacher/PlanTeacher"><i class="fa fa-bar-chart-o fa-fw"></i> Schedule</a>
+                </li>
+                <li>
+                    <a href="~/Home/Index"><i class="fa fa-university fa-fw"></i> Return home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E913DE24-75C3-4142-8B63-697983CC6801}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolManagement</RootNamespace>
+    <AssemblyName>SchoolManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ActiveController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClassController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Class_SubjectController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DivOtherController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DivProjectController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ResetAllController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubjectController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserOtherController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserStudentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserTeacherController.cs" />
+    <Compile Include="Areas\Student\Controllers\StudentController.cs" />
+    <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
+    <Compile Include="Areas\Teacher\Controllers\TeacherController.cs" />
+    <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformationPublicController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="DAL\ActiveDAL.cs" />
+    <Compile Include="DAL\CheckDAL.cs" />
+    <Compile Include="DAL\ClassesDAL.cs" />
+    <Compile Include="DAL\Class_SubjectsDAL.cs" />
+    <Compile Include="DAL\ContactDAL.cs" />
+    <Compile Include="DAL\CryptographyDAL.cs" />
+    <Compile Include="DAL\DateTimeString.cs" />
+    <Compile Include="DAL\DivClassesDAL.cs" />
+    <Compile Include="DAL\DivProjectsDAL.cs" />
+    <Compile Include="DAL\DownloadDAL.cs" />
+    <Compile Include="DAL\InformationPublicDAL.cs" />
+    <Compile Include="DAL\MessageDAL.cs" />
+    <Compile Include="DAL\NoticesDAL.cs" />
+    <Compile Include="DAL\ResetAllDAL.cs" />
+    <Compile Include="DAL\RolesDAL.cs" />
+    <Compile Include="DAL\StudentDAL.cs" />
+    <Compile Include="DAL\SubjectsDAL.cs" />
+    <Compile Include="DAL\TeacherDAL.cs" />
+    <Compile Include="DAL\UsersDAL.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classes.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Class_Subjects.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountRegister_Result.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DivionProjects.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DivisionClasses.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\funClass_Result.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\funSubject_Result.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grades.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageContact.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageReponse.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelSchool.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSchool.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelSchool.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelSchool.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSchool.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegistrationClasses.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegistrationSubjects.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subjects.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>ModelSchool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="LayoutPage\css\animate.css" />
+    <Content Include="LayoutPage\css\bootstrap.css" />
+    <Content Include="LayoutPage\css\owl.carousel.min.css" />
+    <Content Include="LayoutPage\css\style.css" />
+    <Content Include="LayoutPage\css\StyleBackGround.css" />
+    <Content Include="LayoutPage\fonts\flaticon\backup.txt" />
+    <Content Include="LayoutPage\fonts\flaticon\font\flaticon.css" />
+    <Content Include="LayoutPage\fonts\flaticon\font\flaticon.html" />
+    <Content Include="LayoutPage\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="LayoutPage\fonts\fontawesome\css\font-awesome.min.css" />
+    <Content Include="LayoutPage\fonts\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="LayoutPage\fonts\ionicons\cheatsheet.html" />
+    <Content Include="LayoutPage\fonts\ionicons\css\ionicons.css" />
+    <Content Include="LayoutPage\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="LayoutPage\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="LayoutPage\images\angularjs.jpg" />
+    <Content Include="LayoutPage\images\asp.jpg" />
+    <Content Include="LayoutPage\images\bg.jpg" />
+    <Content Include="LayoutPage\images\big_image_3.jpg" />
+    <Content Include="LayoutPage\images\bk1.jpg" />
+    <Content Include="LayoutPage\images\bk2.jpg" />
+    <Content Include="LayoutPage\images\dpt.jpg" />
+    <Content Include="LayoutPage\images\fb.jpg" />
+    <Content Include="LayoutPage\images\fb1.jpg" />
+    <Content Include="LayoutPage\images\fb2.jpg" />
+    <Content Include="LayoutPage\images\feed.jpg" />
+    <Content Include="LayoutPage\images\footer.jpg" />
+    <Content Include="LayoutPage\images\home.jpg" />
+    <Content Include="LayoutPage\images\icea.jpg" />
+    <Content Include="LayoutPage\images\img_2.jpg" />
+    <Content Include="LayoutPage\images\inest.jpg" />
+    <Content Include="LayoutPage\images\logoHust.jpg" />
+    <Content Include="LayoutPage\images\mse.jpg" />
+    <Content Include="LayoutPage\images\mu.jpg" />
+    <Content Include="LayoutPage\images\mu2.jpg" />
+    <Content Include="LayoutPage\images\phone.jpg" />
+    <Content Include="LayoutPage\images\physical.jpg" />
+    <Content Include="LayoutPage\images\qpan.jpg" />
+    <Content Include="LayoutPage\images\reactjs.jpg" />
+    <Content Include="LayoutPage\images\sami.jpg" />
+    <Content Include="LayoutPage\images\sbft.jpg" />
+    <Content Include="LayoutPage\images\schemical.jpg" />
+    <Content Include="LayoutPage\images\see.jpg" />
+    <Content Include="LayoutPage\images\sem.jpg" />
+    <Content Include="LayoutPage\images\sep.jpg" />
+    <Content Include="LayoutPage\images\SET_LOGO_xsmall.jpg" />
+    <Content Include="LayoutPage\images\sheer.jpg" />
+    <Content Include="LayoutPage\images\sme.jpg" />
+    <Content Include="LayoutPage\images\sneep.jpg" />
+    <Content Include="LayoutPage\images\sofl.jpg" />
+    <Content Include="LayoutPage\images\SoICT.jpg" />
+    <Content Include="LayoutPage\images\ste.jpg" />
+    <Content Include="LayoutPage\images\stlf.jpg" />
+    <Content Include="LayoutPage\images\website.jpg" />
+    <Content Include="LayoutPage\js\bootstrap.min.js" />
+    <Content Include="LayoutPage\js\jquery-3.2.1.min.js" />
+    <Content Include="LayoutPage\js\jquery-migrate-3.0.0.js" />
+    <Content Include="LayoutPage\js\jquery.stellar.min.js" />
+    <Content Include="LayoutPage\js\jquery.waypoints.min.js" />
+    <Content Include="LayoutPage\js\main.js" />
+    <Content Include="LayoutPage\js\owl.carousel.min.js" />
+    <Content Include="LayoutPage\js\popper.min.js" />
+    <Content Include="LayoutTemplate\css\bootstrap-social.css" />
+    <Content Include="LayoutTemplate\css\bootstrap-theme.min.css" />
+    <Content Include="LayoutTemplate\css\bootstrap.min.css" />
+    <Content Include="LayoutTemplate\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="LayoutTemplate\css\dataTables\dataTables.responsive.css" />
+    <Content Include="LayoutTemplate\css\font-awesome.min.css" />
+    <Content Include="LayoutTemplate\css\metisMenu.min.css" />
+    <Content Include="LayoutTemplate\css\morris.css" />
+    <Content Include="LayoutTemplate\css\startmin.css" />
+    <Content Include="LayoutTemplate\css\timeline.css" />
+    <Content Include="LayoutTemplate\fonts\fontawesome-webfont.svg" />
+    <Content Include="LayoutTemplate\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="LayoutTemplate\js\bootstrap.min.js" />
+    <Content Include="LayoutTemplate\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="LayoutTemplate\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="LayoutTemplate\js\flot-data.js" />
+    <Content Include="LayoutTemplate\js\flot\excanvas.min.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.colorhelpers.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.canvas.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.categories.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.image.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.navigate.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.pie.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.resize.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.selection.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.stack.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.symbol.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.threshold.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.time.js" />
+    <Content Include="LayoutTemplate\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="LayoutTemplate\js\jquery.min.js" />
+    <Content Include="LayoutTemplate\js\metisMenu.min.js" />
+    <Content Include="LayoutTemplate\js\morris-data.js" />
+    <Content Include="LayoutTemplate\js\morris.min.js" />
+    <Content Include="LayoutTemplate\js\raphael.min.js" />
+    <Content Include="LayoutTemplate\js\startmin.js" />
+    <Content Include="Models\ModelSchool.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelSchool.Context.cs</LastGenOutput>
+      <DependentUpon>ModelSchool.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelSchool.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSchool.edmx</DependentUpon>
+      <LastGenOutput>ModelSchool.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="LayoutPage\css\bootstrap.css.map" />
+    <Content Include="LayoutPage\fonts\.DS_Store" />
+    <Content Include="LayoutPage\fonts\flaticon\.DS_Store" />
+    <Content Include="LayoutPage\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="LayoutPage\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="LayoutPage\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="LayoutPage\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="LayoutPage\fonts\flaticon\license\license.pdf" />
+    <Content Include="LayoutPage\fonts\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="LayoutPage\fonts\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LayoutPage\fonts\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="LayoutPage\fonts\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="LayoutPage\fonts\ionicons\.DS_Store" />
+    <Content Include="LayoutPage\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="LayoutPage\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="LayoutPage\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="LayoutPage\images\.DS_Store" />
+    <Content Include="LayoutPage\scss\.DS_Store" />
+    <Content Include="LayoutPage\scss\bootstrap-grid.scss" />
+    <Content Include="LayoutPage\scss\bootstrap-reboot.scss" />
+    <Content Include="LayoutPage\scss\bootstrap.scss" />
+    <Content Include="LayoutPage\scss\mixins\_alert.scss" />
+    <Content Include="LayoutPage\scss\mixins\_background-variant.scss" />
+    <Content Include="LayoutPage\scss\mixins\_badge.scss" />
+    <Content Include="LayoutPage\scss\mixins\_border-radius.scss" />
+    <Content Include="LayoutPage\scss\mixins\_box-shadow.scss" />
+    <Content Include="LayoutPage\scss\mixins\_breakpoints.scss" />
+    <Content Include="LayoutPage\scss\mixins\_buttons.scss" />
+    <Content Include="LayoutPage\scss\mixins\_caret.scss" />
+    <Content Include="LayoutPage\scss\mixins\_clearfix.scss" />
+    <Content Include="LayoutPage\scss\mixins\_float.scss" />
+    <Content Include="LayoutPage\scss\mixins\_forms.scss" />
+    <Content Include="LayoutPage\scss\mixins\_gradients.scss" />
+    <Content Include="LayoutPage\scss\mixins\_grid-framework.scss" />
+    <Content Include="LayoutPage\scss\mixins\_grid.scss" />
+    <Content Include="LayoutPage\scss\mixins\_hover.scss" />
+    <Content Include="LayoutPage\scss\mixins\_image.scss" />
+    <Content Include="LayoutPage\scss\mixins\_list-group.scss" />
+    <Content Include="LayoutPage\scss\mixins\_lists.scss" />
+    <Content Include="LayoutPage\scss\mixins\_nav-divider.scss" />
+    <Content Include="LayoutPage\scss\mixins\_navbar-align.scss" />
+    <Content Include="LayoutPage\scss\mixins\_pagination.scss" />
+    <Content Include="LayoutPage\scss\mixins\_reset-text.scss" />
+    <Content Include="LayoutPage\scss\mixins\_resize.scss" />
+    <Content Include="LayoutPage\scss\mixins\_screen-reader.scss" />
+    <Content Include="LayoutPage\scss\mixins\_size.scss" />
+    <Content Include="LayoutPage\scss\mixins\_table-row.scss" />
+    <Content Include="LayoutPage\scss\mixins\_text-emphasis.scss" />
+    <Content Include="LayoutPage\scss\mixins\_text-hide.scss" />
+    <Content Include="LayoutPage\scss\mixins\_text-truncate.scss" />
+    <Content Include="LayoutPage\scss\mixins\_transition.scss" />
+    <Content Include="LayoutPage\scss\mixins\_visibility.scss" />
+    <Content Include="LayoutPage\scss\style.scss" />
+    <Content Include="LayoutPage\scss\utilities\_align.scss" />
+    <Content Include="LayoutPage\scss\utilities\_background.scss" />
+    <Content Include="LayoutPage\scss\utilities\_borders.scss" />
+    <Content Include="LayoutPage\scss\utilities\_clearfix.scss" />
+    <Content Include="LayoutPage\scss\utilities\_display.scss" />
+    <Content Include="LayoutPage\scss\utilities\_embed.scss" />
+    <Content Include="LayoutPage\scss\utilities\_flex.scss" />
+    <Content Include="LayoutPage\scss\utilities\_float.scss" />
+    <Content Include="LayoutPage\scss\utilities\_position.scss" />
+    <Content Include="LayoutPage\scss\utilities\_screenreaders.scss" />
+    <Content Include="LayoutPage\scss\utilities\_sizing.scss" />
+    <Content Include="LayoutPage\scss\utilities\_spacing.scss" />
+    <Content Include="LayoutPage\scss\utilities\_text.scss" />
+    <Content Include="LayoutPage\scss\utilities\_visibility.scss" />
+    <Content Include="LayoutPage\scss\_alert.scss" />
+    <Content Include="LayoutPage\scss\_badge.scss" />
+    <Content Include="LayoutPage\scss\_breadcrumb.scss" />
+    <Content Include="LayoutPage\scss\_button-group.scss" />
+    <Content Include="LayoutPage\scss\_buttons.scss" />
+    <Content Include="LayoutPage\scss\_card.scss" />
+    <Content Include="LayoutPage\scss\_carousel.scss" />
+    <Content Include="LayoutPage\scss\_close.scss" />
+    <Content Include="LayoutPage\scss\_code.scss" />
+    <Content Include="LayoutPage\scss\_custom-forms.scss" />
+    <Content Include="LayoutPage\scss\_custom.scss" />
+    <Content Include="LayoutPage\scss\_dropdown.scss" />
+    <Content Include="LayoutPage\scss\_forms.scss" />
+    <Content Include="LayoutPage\scss\_functions.scss" />
+    <Content Include="LayoutPage\scss\_grid.scss" />
+    <Content Include="LayoutPage\scss\_images.scss" />
+    <Content Include="LayoutPage\scss\_input-group.scss" />
+    <Content Include="LayoutPage\scss\_jumbotron.scss" />
+    <Content Include="LayoutPage\scss\_list-group.scss" />
+    <Content Include="LayoutPage\scss\_media.scss" />
+    <Content Include="LayoutPage\scss\_mixins.scss" />
+    <Content Include="LayoutPage\scss\_modal.scss" />
+    <Content Include="LayoutPage\scss\_nav.scss" />
+    <Content Include="LayoutPage\scss\_navbar.scss" />
+    <Content Include="LayoutPage\scss\_pagination.scss" />
+    <Content Include="LayoutPage\scss\_popover.scss" />
+    <Content Include="LayoutPage\scss\_print.scss" />
+    <Content Include="LayoutPage\scss\_progress.scss" />
+    <Content Include="LayoutPage\scss\_reboot.scss" />
+    <Content Include="LayoutPage\scss\_root.scss" />
+    <Content Include="LayoutPage\scss\_tables.scss" />
+    <Content Include="LayoutPage\scss\_tooltip.scss" />
+    <Content Include="LayoutPage\scss\_transitions.scss" />
+    <Content Include="LayoutPage\scss\_type.scss" />
+    <Content Include="LayoutPage\scss\_utilities.scss" />
+    <Content Include="LayoutPage\scss\_variables.scss" />
+    <EntityDeploy Include="Models\ModelSchool.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSchool.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelSchool.edmx.diagram">
+      <DependentUpon>ModelSchool.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Teacher\Views\web.config" />
+    <Content Include="Areas\Student\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="LayoutTemplate\fonts\fontawesome-webfont.eot" />
+    <Content Include="LayoutTemplate\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LayoutTemplate\fonts\fontawesome-webfont.woff" />
+    <Content Include="LayoutTemplate\fonts\fontawesome-webfont.woff2" />
+    <Content Include="LayoutTemplate\fonts\FontAwesome.otf" />
+    <Content Include="LayoutTemplate\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="LayoutTemplate\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="LayoutTemplate\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="LayoutTemplate\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Active\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Class\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Class\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Class\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Class\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Class_Subject\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Class_Subject\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Class_Subject\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DivOther\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DivOther\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Edit1.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Edit2.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Edit3.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Project1.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Project2.cshtml" />
+    <Content Include="Areas\Admin\Views\DivProject\Project3.cshtml" />
+    <Content Include="Areas\Admin\Views\ResetAll\ResetClasses.cshtml" />
+    <Content Include="Areas\Admin\Views\ResetAll\ResetSubjects.cshtml" />
+    <Content Include="Areas\Admin\Views\Subject\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Subject\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Subject\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Subject\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserOther\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\UserOther\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserOther\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserOther\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserStudent\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserStudent\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserStudent\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserTeacher\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserTeacher\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserTeacher\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\RoleUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\RoleUserCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\RoleUserDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\RoleUserEdit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Teacher\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Teacher\ListClass.cshtml" />
+    <Content Include="Areas\Teacher\Views\Teacher\Mark.cshtml" />
+    <Content Include="Areas\Teacher\Views\Teacher\PlanTeacher.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Grades.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Index.cshtml" />
+    <Content Include="Areas\Student\Views\Student\RegClass.cshtml" />
+    <Content Include="Areas\Student\Views\Student\RegSubject.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Schedule.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\RepMessage.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_PartialTitle.cshtml" />
+    <Content Include="Views\Shared\_PartialRole.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Shared\_PartialisLogin.cshtml" />
+    <Content Include="Views\Shared\_PartialContact.cshtml" />
+    <Content Include="Views\InformationPublic\Student.cshtml" />
+    <Content Include="Views\InformationPublic\Teacher.cshtml" />
+    <Content Include="Views\SharedTemplate\_LayoutAdmin.cshtml" />
+    <Content Include="Views\SharedTemplate\_PartialNavMenu.cshtml" />
+    <Content Include="Views\SharedTemplate\_PartialNavRole.cshtml" />
+    <Content Include="Views\InformationPublic\DivClasses.cshtml" />
+    <Content Include="Views\InformationPublic\ListClass.cshtml" />
+    <Content Include="Views\InformationPublic\ListofClass.cshtml" />
+    <Content Include="Views\InformationPublic\ListSubject.cshtml" />
+    <Content Include="Views\InformationPublic\Project1.cshtml" />
+    <Content Include="Views\InformationPublic\Project2.cshtml" />
+    <Content Include="Views\InformationPublic\Project3.cshtml" />
+    <Content Include="Views\InformationPublic\ViewClass.cshtml" />
+    <Content Include="Views\InformationPublic\ViewListClass.cshtml" />
+    <Content Include="Views\Login\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Student\Models\" />
+    <Folder Include="Areas\Student\Views\Shared\" />
+    <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Areas\Teacher\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53607</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53607/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
